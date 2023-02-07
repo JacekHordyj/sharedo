@@ -1,0 +1,41 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<div class="auth">
+
+    <div class="card">
+        <div class="auth__header text-center">
+            <a href="/">
+            <img src="{% static 'images/logo.svg'%}" width="80" height="90" style= "padding-left: 15px"vt/>
+            </a>
+        <h3>Account SignUp</h3>
+        <p>Create new account and start making lists!</p>
+        </div>
+
+        <div class="card-body">
+            <form action="{% url 'register' %}" method="POST">
+                {% csrf_token %}
+        
+                {% for field in form %}
+                <div class="mb-3">
+                        <label for="formInput#text">{{field.label}}</label>
+                        {{field}}
+                
+                    
+                    {% for error in field.errors %}
+                        <p class="p-0" style="color:#ff3333;">{{error}}</p>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+                <button type="submit" class="btn btn-secondary btn-lg">Sign Up</button>
+            </form>
+        </div>
+
+        <div class="auth__alternative">
+            <p>Already have an Account?</p>
+            <a href="{% url 'login'%}">Log In</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}

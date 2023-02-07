@@ -1,0 +1,52 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="container d-flex justify-content-center">
+    <div class="card w-50 box-shadow">
+
+        <div class="card-header header-f-size">
+            <div class="d-flex flex-row mb-2 justify-content-between align-center">
+                <div class="p-2">
+                    <p style="height:15px;">{{list.title}}</p>
+                </div>
+                <div class="p-2">
+                    <a href="{% url 'dashboard'  %}" class="fa-solid fa-xmark icon-grey"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <div class="d-flex flex-column mb-3 justify-content-end ">
+                {% if list.coowner  %}
+                <div class="p-3 bg-light border border-info rounded text-center" style="display:inline;">
+                    {{list.owner}} & {{list.coowner}} are currently sharing this list!
+               </div>
+                <div class="p-0 mt-5">     
+                    <form action="" method="GET" name='UnShareForm'>
+                        <input type="hidden" name='stop_sharing'>
+                        <button type="submit" class="btn btn-outline-danger">Stop sharing</button>
+                    </form>
+                </div> 
+                {% else %}
+                <div class="p-3 bg-light border border-info rounded text-center" style="display:inline;">
+                    Invite other ListMaker to share this list with you!
+               </div>
+                <div class="p-2">     
+                    <form method="POST">
+                        {% csrf_token %}                        
+                        {{form.as_p}}                                 
+                        <button type="submit" class="btn btn-secondary">Share list</button>                    
+                    </form>
+                </div> 
+                {% endif %}
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content%}
+

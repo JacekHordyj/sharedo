@@ -1,0 +1,84 @@
+{% extends 'main.html' %}
+{% block content %}
+<script src="https://kit.fontawesome.com/0ed0c78c5f.js" crossorigin="anonymous"></script>
+
+<div class="row row-cols-3 row-cols-md-6 g-2">
+
+  <div class="col">
+    <div class="card box-shadow color-card-h">
+      <div class="card-body d-flex align-items-center text-center justify-content-center color-card-bg">
+        <h5 class="card-title"></h5>          
+          <p class="card-text color-card-font">Add new list<br>&#43;</p>        
+        <a href="{% url 'create-list' %}" class="stretched-link "></a>
+      </div>
+    </div>
+  </div>
+
+  {% for list in lists %}
+    <div class="col">
+      <div class="card w-100 box-shadow">
+        <div class="card-header bold" >
+          {{list.title}}
+          <a href="{% url 'list' list.id %}" class="stretched-link "></a>
+        </div>
+        <div class="card-body">
+      
+          {% for task in list.task_set.all %}
+         
+            <ul class="fa-ul">
+              {% if task.completed %}
+              <li>
+                <span class="fa-li">                
+                <form action="" method="GET" name='taskDoneForm'>
+                  <input type="hidden" name='task' value={{task.id}}>
+                  <input class="form-check-input checkbox faChkRnd" type="checkbox" checked>
+                </form>
+                </span>
+                <div>                
+                  <strike>{{task.name}}</strike>
+                </div>
+              </li>
+              {% else %}
+              <li>
+                <span class="fa-li">        
+                <form action="" method="GET">
+                  <input type="hidden" name='task' value={{task.id}}>
+                  <input class="form-check-input checkbox faChkRnd" type="checkbox">
+                </form>
+                </span>
+                <div>
+                  {{task.name}}
+                  <a href="{% url 'list' list.id %}" class="stretched-link "></a>
+                </div>
+              </li>
+              {% endif %}
+            </ul>
+          {% endfor %}
+
+
+        </div>
+        <div class="d-flex flex-row mb-3 justify-content-start ps-3">
+          {% if list.coowner %}
+             <a href="{% url 'share-list' list.id %}" class="fa-solid fa-user-group i-bot-menu-pink" data-toggle="tooltip" data-placement="bottom" title="Created by: {{list.owner}}, Shared with: {{list.coowner}}"></a>
+          {% else %}
+             <a href="{% url 'share-list' list.id %}" class="fa-solid fa-user-plus i-bot-menu"></a>
+          {% endif %}
+          <a href="#" class="fa-solid fa-palette i-bot-menu fa-disabled"></a>
+          <a href="#" class="fa-solid fa-check-to-slot i-bot-menu fa-disabled"></a>
+          <a href="{% url 'delete-list' list.id %}" class="fa-solid fa-trash i-bot-menu"></a>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+
+  </div>
+
+<script>
+  let tasks_checkboxes = document.getElementsByClassName('checkbox')
+  for(let i = 0;i<tasks_checkboxes.length;i++) {
+      tasks_checkboxes[i].addEventListener('click',(e)=>{
+          tasks_checkboxes[i].parentNode.submit()          
+      })
+  }
+</script>
+{% endblock content %}

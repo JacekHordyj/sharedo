@@ -1,0 +1,297 @@
+
+body{
+    font-family: "Poppins", sans-serif;
+    margin-top:120px;
+    margin-left:50px;
+	margin-right:50px;
+    background-color: #ffffff;
+}
+
+a{
+	cursor:pointer;
+
+}
+ 
+p{
+	padding-bottom:1rem;
+}
+ 
+h5{
+	font-weight:bold;
+	color:#2b2b2b;
+}
+/* ALERTS*/
+.alert-trim {
+	display: inline-block;
+  }
+
+.li-alert{
+	list-style-type: none;
+}
+
+.mt-alerts {
+    position:fixed;
+	top: 90px;
+    z-index: 999;
+}
+ /*CARDS*/
+
+.color-card-bg{
+	background-color:#e0ebeb
+}
+.color-card-font{
+	font-size: 150%
+}
+.color-card-h{
+	height: 15rem;
+}
+
+.header-f-size{
+	font-size: 25;
+}
+
+.box-shadow{
+	-webkit-box-shadow: 0 1px 1px rgba(72,78,85,.6);
+	box-shadow: 0 1px 1px rgba(72,78,85,.6);
+	-webkit-transition: all .2s ease-out;
+	-moz-transition: all .2s ease-out;
+	-ms-transition: all .2s ease-out;
+	-o-transition: all .2s ease-out;
+	transition: all .2s ease-out;
+}
+ 
+.box-shadow:hover{
+	-webkit-box-shadow: 0 20px 40px rgba(72,78,85,.6);
+	box-shadow: 0 20px 40px rgba(72,78,85,.6);
+	-webkit-transform: translateY(-15px);
+	-moz-transform: translateY(-15px);
+	-ms-transform: translateY(-15px);
+	-o-transform: translateY(-15px);
+	transform: translateY(-15px);
+}
+ 
+ 
+.card svg{
+	position:absolute;
+	top:19rem;
+  -webkit-transition: all .2s ease-out;
+	-moz-transition: all .2s ease-out;
+	-ms-transition: all .2s ease-out;
+	-o-transition: all .2s ease-out;
+	transition: all .2s ease-out;
+	filter:drop-shadow(2px -9px 4px rgba(0, 69, 134, 0.2));
+}
+.card:hover svg{
+	filter:drop-shadow(2px -9px 4px rgba(0, 69, 134, 0.4));
+}
+
+.card .card-body{
+	transform: rotate(0);
+}
+
+.card .card-header{
+	transform: rotate(0);
+}
+
+
+/*TEXT*/
+
+.bold {
+	font-weight: 500;
+}
+
+.welc-msg{
+	font-size: 120%
+}
+.welc-msg-user{
+	color:#ab7c94; 
+	font-weight: bold;
+}
+
+/*ICONS*/
+
+i {
+    padding-top: 5px;
+    font-size: 15px;
+}
+
+.icon-black {
+	color: #2b2b2b; 
+	text-decoration: none;
+}
+
+.icon-grey {
+color: #8c8c8c; 
+text-decoration: none;
+
+}
+
+.icon-add {
+	color: #2b2b2b; 
+	text-decoration: none; 
+	padding-left: 30; 
+	font-size: 120%
+  }
+
+.icon-back {
+	color: #2b2b2b; 
+	text-decoration: none; 
+	padding-right: 10; 
+	font-size: 100%
+}
+
+.fa-ul{
+	--fa-li-margin: 2em;
+	list-style-type: none;
+}
+
+.fabutton {
+	background: none;
+	padding: 0px;
+	border: none;
+  }
+
+.fa-disabled {
+	opacity: 0.4;
+	cursor: not-allowed;
+	pointer-events: none;
+  }
+/* Card bottom menu icons*/
+.i-bot-menu{
+	font-size: 15px;
+	color: #4f4a4d;
+	padding-left: 10px;
+	padding-right: 10px;
+	text-decoration: none;
+}
+
+.i-bot-menu-pink{
+	font-size: 15px;
+	/* color:#e28383; */
+	color:#3c9397; 
+	padding-left: 10px;
+	padding-right: 10px;
+	text-decoration: none;
+}
+
+
+
+/*=======================
+  Login/SignUp
+========================*/
+
+.auth {
+	width: 100%;
+	/*z-index: 1;*/
+	background: transparent;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  }
+  
+  .auth::after {
+	z-index: -1;
+	opacity: 0.1;
+	content: '';
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: url(../images/pattern.jpg);
+  }
+
+  .auth .card{
+	width: 30%;
+	padding: 1rem 1rem;
+  }
+
+  .auth__header h3 {
+	color: var(--color-sub);
+	font-weight: 700;
+	margin-top: 0.5rem;
+	font-size: 2rem;
+  }
+  
+  .auth__header p {
+	font-weight: 400;
+	font-size: 1.2rem;
+	color: #4f4a4d;
+  }
+
+  .auth a{
+	color: #5aa5b9;
+  }
+
+  .auth__alternative{
+	display: flex;
+	justify-content: center;
+  }
+
+  .auth .auth__alternative a{
+	color: #5aa5b9;
+	text-decoration:none;
+	padding-left: 0.5rem
+  }
+
+  .auth .card-body{
+	justify-content: center;
+	display: flex;
+  }
+
+
+/*FORM CONTROLS*/
+
+.auth .form-control{
+
+	width: 100%;
+	height: 2.7rem;
+	margin: 0;
+
+}
+
+.striked-form{
+
+text-decoration: line-through;
+
+}
+
+.get-striked{
+	text-decoration: inherit;
+	width:100%;
+	overflow:hidden;
+	border:none;
+	resize:none;
+}
+
+input.faChkRnd, input.faChkSqr {
+	visibility: hidden;
+  }
+  
+input.faChkRnd:checked:after, input.faChkRnd:after,
+input.faChkSqr:checked:after, input.faChkSqr:after {
+visibility: visible;
+font-family: FontAwesome;
+font-size:15px;height: 17px; width: 17px;
+position: relative;
+color: #8c8c8c; 
+top: 3px;
+left: -5px;
+}
+
+input.faChkRnd:checked:after {
+content: '\f058';
+}
+
+input.faChkRnd:after {
+content: '\f10c';
+}
+
+input.faChkSqr:checked:after {
+content: '\f14a';
+}
+
+input.faChkSqr:after {
+content: '\f096';
+}

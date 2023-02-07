@@ -1,0 +1,51 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<div class="auth">
+    <div class="card">
+      <div class="auth__header text-center">
+          <a href="/">
+            <img src="{% static 'images/logo.svg'%}" width="80" height="90" style= "padding-left: 15px"vt/>
+          </a>
+        <h3>Account Login</h3>
+        <p>Hello ListMaker, Welcome Back!</p>
+      </div>
+
+      <div class="card-body">
+      <form action="" method="POST">
+        {% csrf_token %}
+        <!-- Input:username -->
+            <div class="mb-3">
+                <label for="formInput#text" class="form-label">Username:</label>
+                <input type="text" 
+                      class="form-control " 
+                      name="username" 
+                      id="formInput#text" 
+                      placeholder="Enter your username">
+            </div>
+       <!-- Input:Password -->
+            <div class="mb-3">
+              <label for="formInput#password" class="form-label">Password:</label>
+              <input type="password"
+                    class="form-control" 
+                    name="password" 
+                    id="formInput#password" 
+                    placeholder="••••••••">
+            </div>
+
+            <div class="d-flex flex-row mb-3 justify-content-between">
+            <button type="submit" class="btn btn-secondary btn-lg">Log In</button>
+            <a href="#">Forget <br> Password?</a>
+            </div>      
+
+      </form>
+      </div>
+
+      <div class="auth__alternative">
+          <p>Don’t have an Account?</p>
+          <a href="{% url 'register'%}">Sign Up</a>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

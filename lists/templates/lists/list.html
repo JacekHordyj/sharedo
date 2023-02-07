@@ -1,0 +1,86 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<div class="container d-flex justify-content-center">
+    <div class="card w-50 box-shadow">
+
+        <div class="card-header header-f-size">
+            <div class="d-flex flex-row mb-2 justify-content-between align-center">
+                <div class="p-2">
+                    <form method="POST" style="height:15px;">
+                        {% csrf_token %}
+                        {{form}}
+                        <input type="submit" hidden />
+                    </form>
+                </div>
+                <div class="p-2">
+                    <a href="{% url 'dashboard'  %}" class="fa-solid fa-xmark icon-grey"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">      
+  
+            <form method="post">
+                {% csrf_token %}
+                <ul class="fa-ul">
+                    {{ formset.management_form }}
+                    {% for form in formset %}
+                        <li>
+                        <div class="d-flex flex-nowrap justify-content-between ">
+                        {% if form.completed.value %}<!--This is how to access value of field of form-->
+                            {% for field in form %}                           
+                            <div class="p-1">
+                            {% if field.label == 'name' %}
+                                <div class="striked-form">{{field}}</div> <!--ALTERNATIVE { field|add_class:'striked-form' } NOT TESTED AND DOUBLE THE BRACKETS!-->
+                            {% else %}
+                                {{ field }}
+                            {% endif %}
+                            </div>
+                            {% endfor %}                               
+                        {% else %}
+                            {% for field in form %}
+                            {% if form.id.value %}                    
+                                <div class="p-1">
+                                    {{ field }}
+                                </div>
+                            {% else %}
+                                {% if field.label == 'name' %}
+                                <div class="p-2" style="margin-left:70px;">
+                                    {{ field }}
+                                </div>
+                                {% endif %}
+                            {% endif %} 
+                            {% endfor %}
+         
+                        {% endif %}
+                        {% if form.id.value %}  
+                        <div class="ml-auto p-2">
+                            <a href="{% url 'delete-task' form.id.value %}" class="fa-solid fa-xmark icon-grey"></a>
+                        </div>
+                        {% endif %}                              
+                        </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </form> 
+
+        </div>
+        <div class="d-flex flex-row mb-3 justify-content-start ps-3">
+            {% if list.coowner %}
+                <a href="{% url 'share-list' list.id %}" class="fa-solid fa-user-group i-bot-menu-pink"></a>               
+            {% else %}
+                <a href="{% url 'share-list' list.id %}" class="fa-solid fa-user-plus i-bot-menu"></a>
+            {% endif %}
+            <a href="#" class="fa-solid fa-palette i-bot-menu fa-disabled"></a>
+            <a href="#" class="fa-solid fa-check-to-slot i-bot-menu fa-disabled"></a>
+            <a href="{% url 'delete-list' list.id %}" class="fa-solid fa-trash i-bot-menu"></a>
+            {% if list.coowner %}
+               <span class="badge rounded-pill text-bg-light" style="margin-left:200px;">Created by: {{list.owner}}, Shared with: {{list.coowner}}</span>
+            {% else %}
+            {% endif %}
+          </div>
+    </div>
+</div>
+
+{% endblock content %}

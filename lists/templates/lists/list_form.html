@@ -1,0 +1,29 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="container d-flex justify-content-center">
+    <div class="card w-50 box-shadow">
+
+        <div class="card-header header-f-size">
+            <div class="d-flex flex-row mb-2 justify-content-between align-center">
+                <div class="p-2">
+                    <form method="POST" style="height:15px;">
+                        {% csrf_token %}
+                        {{form}}
+                        <input type="submit" hidden />
+                    </form>
+                </div>
+                <div class="p-2">
+                    <a href="{% url 'dashboard'  %}" class="fa-solid fa-xmark icon-grey"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">      
+  
+        </div>
+    </div>
+</div>
+
+{% endblock content%}
