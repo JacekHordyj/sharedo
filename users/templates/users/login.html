@@ -2,6 +2,7 @@
 {% load static %}
 {% block content %}
 
+<div class='container-fluid'>
 <div class="auth">
     <div class="card">
       <div class="auth__header text-center">
@@ -34,7 +35,7 @@
                     placeholder="••••••••">
             </div>
 
-            <div class="d-flex flex-row mb-3 justify-content-between">
+            <div class="d-flex flex-row justify-content-between pt-2">
             <button type="submit" class="btn btn-secondary btn-lg">Log In</button>
             <a href="#">Forget <br> Password?</a>
             </div>      
@@ -48,4 +49,5 @@
       </div>
     </div>
   </div>
+</div>
 {% endblock content %}

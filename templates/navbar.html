@@ -1,11 +1,43 @@
 {%load static%}
-<nav class="navbar navbar-dark fixed-top bg-dark">
+{% comment %} <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{%url 'dashboard'%}">
+        <img src="{% static 'images/logo.svg'%}" width="50" height="60" style= "padding-left: 15px">
+    ShareDo</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class ="nav-item mr-auto">
+            {% if request.user.is_authenticated  %}
+            <span class="navbar-text welc-msg welc-msg-vis">
+                Welcome back 
+                <span class ="welc-msg-user">{{request.user.username|capfirst}}</span> !
+            </span>
+            {% endif %}
+            {% if request.user.is_authenticated %}
+            <a href="{%url 'logout'%}">
+                <button type="button" class="btn btn-secondary">Logout</button>
+            </a>
+            {% else %}
+            <a href="{%url 'login'%}">
+                <button type="button" class="btn btn-secondary">Login</button>
+            </a>
+            {% endif %}
+
+        </div>
+
+      </div>
+    </div>
+  </nav> {% endcomment %}
+
+  <nav class="navbar navbar-dark fixed-top bg-dark">
     <a class="navbar-brand" href="{%url 'dashboard'%}">
         <img src="{% static 'images/logo.svg'%}" width="50" height="60" style= "padding-left: 15px">
     ShareDo
     </a>
     {% if request.user.is_authenticated  %}
-        <span class="navbar-text welc-msg">
+        <span class="navbar-text welc-msg welc-msg-vis">
             Welcome back 
             <span class ="welc-msg-user">{{request.user.username|capfirst}}</span> !
         </span>
@@ -24,10 +56,11 @@
     </div>
   </nav>
 
+
 {% if messages %}
 
-<div class='container d-flex justify-content-center mt-alerts'>
-    <ul class="messages">
+<div class='container-fluid text-center mt-alerts'>
+    <ul class="messages justify-content-center">
         {% for message in messages %}
         <li class="li-alert">
             <div class="alert alert-{{ message.tags }} alert-trim alert-dismissible fade show text-center " role="alert">

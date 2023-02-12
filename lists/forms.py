@@ -13,9 +13,9 @@ class ListForm(ModelForm):
 
         for name,field in self.fields.items():
                 field.widget.attrs.update({'onChange':'submit();',
-                                            'style':'border:none;',
+                                            'style':'border:none;max-width:200px;',
                                             'class':'bg-light',
-                                            'placeholder':'Enter list name...'})
+                                            'placeholder':'Enter list name...',})
 
 
 #To  use widgets use exactly "from django import forms"

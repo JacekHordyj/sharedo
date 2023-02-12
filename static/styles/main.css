@@ -2,19 +2,21 @@
 body{
     font-family: "Poppins", sans-serif;
     margin-top:120px;
-    margin-left:50px;
-	margin-right:50px;
+    margin-left:10px;
+	margin-right:10px;
     background-color: #ffffff;
+}
+.themed-grid-col {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: rgba(86, 61, 124, .15);
+    border: 1px solid rgba(86, 61, 124, .2);
 }
 
 a{
 	cursor:pointer;
-
 }
  
-p{
-	padding-bottom:1rem;
-}
  
 h5{
 	font-weight:bold;
@@ -33,6 +35,7 @@ h5{
     position:fixed;
 	top: 90px;
     z-index: 999;
+	transform:translate(-25px,0%);
 }
  /*CARDS*/
 
@@ -43,11 +46,11 @@ h5{
 	font-size: 150%
 }
 .color-card-h{
-	height: 15rem;
+	height: 10rem;
 }
 
 .header-f-size{
-	font-size: 25;
+	font-size: 15;
 }
 
 .box-shadow{
@@ -69,7 +72,6 @@ h5{
 	-o-transform: translateY(-15px);
 	transform: translateY(-15px);
 }
- 
  
 .card svg{
 	position:absolute;
@@ -93,7 +95,6 @@ h5{
 	transform: rotate(0);
 }
 
-
 /*TEXT*/
 
 .bold {
@@ -106,6 +107,12 @@ h5{
 .welc-msg-user{
 	color:#ab7c94; 
 	font-weight: bold;
+}
+
+@media only screen and (max-width: 1026px) {
+    .welc-msg-vis {
+        display: none;
+    }
 }
 
 /*ICONS*/
@@ -141,7 +148,7 @@ text-decoration: none;
 }
 
 .fa-ul{
-	--fa-li-margin: 2em;
+	margin-left: 0;
 	list-style-type: none;
 }
 
@@ -187,74 +194,70 @@ text-decoration: none;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-  }
-  
-  .auth::after {
-	z-index: -1;
-	opacity: 0.1;
-	content: '';
-	display: block;
-	position: fixed;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	background: url(../images/pattern.jpg);
-  }
+}
 
-  .auth .card{
-	width: 30%;
-	padding: 1rem 1rem;
-  }
+.auth::after {
+z-index: -1;
+opacity: 0.1;
+content: '';
+display: block;
+position: fixed;
+top: 0;
+left: 0;
+bottom: 0;
+right: 0;
+background: url(../images/pattern.jpg);
+}
 
-  .auth__header h3 {
-	color: var(--color-sub);
-	font-weight: 700;
-	margin-top: 0.5rem;
-	font-size: 2rem;
-  }
-  
-  .auth__header p {
-	font-weight: 400;
-	font-size: 1.2rem;
-	color: #4f4a4d;
-  }
+.auth .card{
+width: auto;
+padding: 1rem 1rem;
+}
 
-  .auth a{
-	color: #5aa5b9;
-  }
+.auth__header h3 {
+color: var(--color-sub);
+font-weight: 700;
+margin-top: 0.5rem;
+font-size: 1.8rem;
+}
 
-  .auth__alternative{
-	display: flex;
-	justify-content: center;
-  }
+.auth__header p {
+font-weight: 400;
+font-size: 1.1rem;
+color: #4f4a4d;
+}
 
-  .auth .auth__alternative a{
-	color: #5aa5b9;
-	text-decoration:none;
-	padding-left: 0.5rem
-  }
+.auth a{
+color: #5aa5b9;
+}
 
-  .auth .card-body{
-	justify-content: center;
-	display: flex;
-  }
+.auth__alternative{
+display: flex;
+justify-content: center;
+}
+
+.auth .auth__alternative a{
+color: #5aa5b9;
+text-decoration:none;
+padding-left: 0.5rem
+}
+
+.auth .card-body{
+justify-content: center;
+display: flex;
+}
 
 
 /*FORM CONTROLS*/
 
 .auth .form-control{
-
-	width: 100%;
-	height: 2.7rem;
-	margin: 0;
-
+width: 100%;
+height: 2.5rem;
+margin: 0;
 }
 
-.striked-form{
-
-text-decoration: line-through;
-
+.striked-form{	
+	text-decoration: line-through;
 }
 
 .get-striked{

@@ -2,9 +2,9 @@
 {% block content %}
 <script src="https://kit.fontawesome.com/0ed0c78c5f.js" crossorigin="anonymous"></script>
 
-<div class="row row-cols-3 row-cols-md-6 g-2">
-
-  <div class="col">
+<div class='container-fluid'>
+  <div class="row mb-3">
+  <div class="col-lg-2 g-2">
     <div class="card box-shadow color-card-h">
       <div class="card-body d-flex align-items-center text-center justify-content-center color-card-bg">
         <h5 class="card-title"></h5>          
@@ -12,10 +12,10 @@
         <a href="{% url 'create-list' %}" class="stretched-link "></a>
       </div>
     </div>
-  </div>
+  </div> 
 
   {% for list in lists %}
-    <div class="col">
+    <div class="col-lg-2 g-2">
       <div class="card w-100 box-shadow">
         <div class="card-header bold" >
           {{list.title}}
@@ -72,7 +72,9 @@
   {% endfor %}
 
   </div>
+</div>
 
+</div>
 <script>
   let tasks_checkboxes = document.getElementsByClassName('checkbox')
   for(let i = 0;i<tasks_checkboxes.length;i++) {

@@ -18,7 +18,7 @@
                 {% csrf_token %}
         
                 {% for field in form %}
-                <div class="mb-3">
+                <div class="mb-1">
                         <label for="formInput#text">{{field.label}}</label>
                         {{field}}
                 
@@ -28,7 +28,7 @@
                     {% endfor %}
                 </div>
                 {% endfor %}
-                <button type="submit" class="btn btn-secondary btn-lg">Sign Up</button>
+                <button type="submit" class="btn btn-secondary btn-lg mt-1">Sign Up</button>
             </form>
         </div>
 

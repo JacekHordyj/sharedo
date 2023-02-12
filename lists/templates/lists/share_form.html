@@ -2,11 +2,12 @@
 
 {% block content %}
 
-<div class="container d-flex justify-content-center">
-    <div class="card w-50 box-shadow">
+<div class="container-fluid">
+    <div class="d-flex mt-5 justify-content-center">
+    <div class="card box-shadow " style="width: 35rem;">
 
         <div class="card-header header-f-size">
-            <div class="d-flex flex-row mb-2 justify-content-between align-center">
+            <div class="d-flex flex-row  justify-content-between align-center">
                 <div class="p-2">
                     <p style="height:15px;">{{list.title}}</p>
                 </div>
@@ -17,7 +18,7 @@
         </div>
 
         <div class="card-body">
-            <div class="d-flex flex-column mb-3 justify-content-end ">
+            <div class="d-flex flex-column justify-content-end ">
                 {% if list.coowner  %}
                 <div class="p-3 bg-light border border-info rounded text-center" style="display:inline;">
                     {{list.owner}} & {{list.coowner}} are currently sharing this list!
@@ -45,6 +46,7 @@
 
             </div>
         </div>
+    </div>
     </div>
 </div>
 
