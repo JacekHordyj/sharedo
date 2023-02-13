@@ -88,4 +88,16 @@
     </div>
 </div>
 
+
+<script>
+    let tasks_textareas = document.getElementsByClassName('get-striked')
+    for(let i = 0;i<tasks_textareas.length;i++) {
+        tasks_textareas[i].addEventListener('keypress',(e)=>{
+            if (e.key === 'Enter') {
+                document.forms[1].submit();
+            }
+        })
+    }
+  </script>
+
 {% endblock content %}
