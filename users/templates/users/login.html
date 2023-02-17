@@ -14,7 +14,7 @@
       </div>
 
       <div class="card-body">
-      <form action="" method="POST">
+      <form class ="mb-0" action="" method="POST">
         {% csrf_token %}
         <!-- Input:username -->
             <div class="mb-3">
@@ -37,9 +37,11 @@
 
             <div class="d-flex flex-row justify-content-between pt-2">
             <button type="submit" class="btn btn-secondary btn-lg">Log In</button>
-            <a href="#">Forget <br> Password?</a>
-            </div>      
-
+            
+            </div>
+            <div class ="mt-3">
+            <a href="#">Forget Password?</a>      
+            </div>
       </form>
       </div>
 

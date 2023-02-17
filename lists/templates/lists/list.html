@@ -7,6 +7,7 @@
 
         <div class="card-header header-f-size">
             <div class="d-flex flex-row justify-content-between align-center">
+
                 <div class="p-2">
                     <form method="POST" style="height:15px;">
                         {% csrf_token %}
@@ -15,8 +16,9 @@
                     </form>
                 </div>
                 <div class="p-2">
-                    <a href="{% url 'dashboard'  %}" class="fa-solid fa-xmark icon-grey"></a>
+                    <a href="{% url 'dashboard'  %}" class="fa-solid fa-arrow-left-long icon-grey" data-toggle="tooltip" data-placement="bottom" title="Back to dashboard"></a>
                 </div>
+
             </div>
         </div>
 
@@ -57,7 +59,7 @@
                         {% endif %}
                         {% if form.id.value %}  
                         <div class="ml-auto p-2">
-                            <a href="{% url 'delete-task' form.id.value %}" class="fa-solid fa-xmark icon-grey"></a>
+                            <a href="{% url 'delete-task' form.id.value %}" class="fa-solid fa-xmark icon-grey" data-toggle="tooltip" data-placement="bottom" title="Delete task"></a>
                         </div>
                         {% endif %}                              
                         </div>
@@ -65,7 +67,7 @@
                     {% endfor %}
                     <li>
                         {% if list.coowner %}
-                        <span class="badge rounded-pill text-bg-light" style="font-size:0.7em;">Created by: {{list.owner}}, Shared with: {{list.coowner}}</span>
+                        <span class="badge rounded-pill text-bg-light" style="font-size:0.7em;">Created by: {{list.owner|capfirst}}, Shared with: {{list.coowner|capfirst}}</span>
                         {% else %}
                         {% endif %}
                     </li>
@@ -76,13 +78,13 @@
 
         <div class="d-flex flex-row mb-3 justify-content-start ps-3">
             {% if list.coowner %}
-                <a href="{% url 'share-list' list.id %}" class="fa-solid fa-user-group i-bot-menu-pink"></a>               
+                <a href="{% url 'share-list' list.id %}" class="fa-solid fa-user-group i-bot-menu-pink" data-placement="bottom" title="Created by: {{list.owner|capfirst}}, Shared with: {{list.coowner|capfirst}}"></a>               
             {% else %}
-                <a href="{% url 'share-list' list.id %}" class="fa-solid fa-user-plus i-bot-menu"></a>
+                <a href="{% url 'share-list' list.id %}" class="fa-solid fa-user-plus i-bot-menu"data-toggle="tooltip" data-placement="bottom" title="Share list"></a>
             {% endif %}
             <a href="#" class="fa-solid fa-palette i-bot-menu fa-disabled"></a>
             <a href="#" class="fa-solid fa-check-to-slot i-bot-menu fa-disabled"></a>
-            <a href="{% url 'delete-list' list.id %}" class="fa-solid fa-trash i-bot-menu"></a>
+            <a href="{% url 'delete-list' list.id %}" class="fa-solid fa-trash i-bot-menu" data-toggle="tooltip" data-placement="bottom" title="Delete list"></a>
           </div>
     </div>
     </div>

@@ -59,13 +59,13 @@
         </div>
         <div class="d-flex flex-row mb-3 justify-content-start ps-3">
           {% if list.coowner %}
-             <a href="{% url 'share-list' list.id %}" class="fa-solid fa-user-group i-bot-menu-pink" data-toggle="tooltip" data-placement="bottom" title="Created by: {{list.owner}}, Shared with: {{list.coowner}}"></a>
+             <a href="{% url 'share-list' list.id %}" class="fa-solid fa-user-group i-bot-menu-pink" data-toggle="tooltip" data-placement="bottom" title="Created by: {{list.owner|capfirst}}, Shared with: {{list.coowner|capfirst}}"></a>
           {% else %}
-             <a href="{% url 'share-list' list.id %}" class="fa-solid fa-user-plus i-bot-menu"></a>
+             <a href="{% url 'share-list' list.id %}" class="fa-solid fa-user-plus i-bot-menu" data-toggle="tooltip" data-placement="bottom" title="Share list"></a>
           {% endif %}
           <a href="#" class="fa-solid fa-palette i-bot-menu fa-disabled"></a>
           <a href="#" class="fa-solid fa-check-to-slot i-bot-menu fa-disabled"></a>
-          <a href="{% url 'delete-list' list.id %}" class="fa-solid fa-trash i-bot-menu"></a>
+          <a href="{% url 'delete-list' list.id %}" class="fa-solid fa-trash i-bot-menu"data-toggle="tooltip" data-placement="bottom" title="Delete list"></a>
         </div>
       </div>
     </div>

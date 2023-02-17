@@ -94,7 +94,7 @@ def shareList(request,pk):
         print(form)
         if form.is_valid():
             try:
-                invited_user = Profile.objects.get(username=request.POST['coowner'])
+                invited_user = Profile.objects.get(username=request.POST['coowner'].lower())
                 list.coowner= invited_user
                 list.save()
                 messages.success(request,'List successfully shared with: '+ invited_user.name)
